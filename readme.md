@@ -42,3 +42,6 @@ HTTP Status Codes
 
 MIDDLEWARES 
 Funções que tem acesso ao objeto de solicitação, o objeto de resposta, e a próxima função do middleware no ciclo solicitação-resposta do app.
+
+Biblioteca para erros 
+npm install express-async-errors --save
