@@ -19,3 +19,7 @@ http://localhost:3333/message/4/matheus
 
 QUERY PARAMS
 http://localhost:3333/users?page=2&limit=40
+
+
+NODEMON 
+npm i nodemon --save-dev
