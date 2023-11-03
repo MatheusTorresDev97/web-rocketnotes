@@ -23,3 +23,11 @@ http://localhost:3333/users?page=2&limit=40
 
 NODEMON 
 npm i nodemon --save-dev
+
+ESTRUTURA INICIAL DO NOSSO PROJETO
+
+SRC --- server.js 
+        routes
+        controllers
+        utils
+        database 
