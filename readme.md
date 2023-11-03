@@ -31,3 +31,14 @@ SRC --- server.js
         controllers
         utils
         database 
+
+
+HTTP Status Codes
+1xx --- Informativo
+2xx --- Sucesso
+3xx --- Redirecionamento
+4xx --- Erro do cliente
+5xx --- Erro no servidor 
+
+MIDDLEWARES 
+Funções que tem acesso ao objeto de solicitação, o objeto de resposta, e a próxima função do middleware no ciclo solicitação-resposta do app.
