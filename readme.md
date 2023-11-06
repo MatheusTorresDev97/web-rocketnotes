@@ -107,3 +107,6 @@ Deletando dados de uma tabela
 
 DELETE FROM users 
 WHERE id = 2
+
+
+PARA CRIPTOGRAFAR SENHAS PODEMOS UTILIZAR O BCRYPTJS
