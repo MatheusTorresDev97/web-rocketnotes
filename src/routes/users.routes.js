@@ -1,21 +1,11 @@
-const { Router } = require("express")
+const { Router } = require('express')
+
+const UsersController = require('../controllers/UsersController')
 
 const usersRoutes = Router()
 
-function myMiddleware(req, res, next) {
-    console.log('Você passsou pelo Middleware');
-    if (!req.body.isAdmin) {
-        return res.json({ message: "user unauthorized" })
-    }
+const usersController = new UsersController()
 
-    next()
-}
+usersRoutes.post('/', usersController.create)
 
-const UsersController = require("../controllers/UsersController")
-
-const usersController = new UsersController();
-
-//usersRoutes.use(myMiddleware)
-usersRoutes.post("/", myMiddleware, usersController.create);
-
-module.exports = usersRoutes;
+module.exports = usersRoutes
