@@ -45,3 +45,6 @@ Funções que tem acesso ao objeto de solicitação, o objeto de resposta, e a p
 
 Biblioteca para erros 
 npm install express-async-errors --save
+
+INSTALANDO O BANCO DE DADOS 
+npm install sqlite3 sqlite --save
