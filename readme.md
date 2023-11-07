@@ -117,3 +117,19 @@ npm i knex --save
 
 Startar o knex 
 npx knex init
+
+
+Migrations 
+Forma de versionar a base de dados 
+trabalha na manipulaçãp de dados: criando, alterando e removendo.
+
+Métodos de uma migrations
+UP: método responsável por criar ou alterar algo no banco de dados
+DOWN: responsável pelo rollback. Desfazer as alterações realizadas pela migration
+
+criamos a migration do projeto utilizando Knex e executaremos ela para que as tabelas sejam inseridas no banco de dados.
+
+npx knex migrate:make createNotes
+Criar a tabela notas
+
+Para rodar a migração e automatizar apos criada utilizar o comando npx knex migrate:latest
