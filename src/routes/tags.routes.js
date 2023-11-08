@@ -9,4 +9,4 @@ const tagsController = new TagsController()
 tagsRoutes.get('/:user_id', tagsController.index)
 
 
-module.exports = notesRoutes
+module.exports = tagsRoutes
