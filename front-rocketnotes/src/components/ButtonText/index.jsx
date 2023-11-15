@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from './styles'
 
-const ButtonText = ({ title, ...props }) => {
+const ButtonText = ({ title, isActive = false, ...props }) => {
   return (
-    <Container type="button" {...props}>
-        {title}
+    <Container type="button" isActive={isActive} {...props}>
+      {title}
     </Container>
   )
 }
