@@ -47,7 +47,8 @@ export const Menu = styled.ul`
 `;
 export const Search = styled.div`
   grid-area: search;
-  background-color: violet;
+  padding: 64px 64px 0;
+
 `;
 export const Content = styled.div`
   grid-area: content;
