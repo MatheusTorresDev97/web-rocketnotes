@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container, Profile, Logout } from './styles'
 import { RiShutDownLine } from 'react-icons/ri'
 
@@ -6,7 +5,7 @@ import { RiShutDownLine } from 'react-icons/ri'
 const Header = () => {
   return (
     <Container>
-      <Profile>
+      <Profile to="/profile">
       <img
           src="https://github.com/matheustorresdev97.png"
           alt="Foto do usuário"
