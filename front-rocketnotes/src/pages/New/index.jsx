@@ -22,9 +22,16 @@ const New = () => {
 
             <Textarea placeholder="Observações" />
 
-            <Section title="links úteis">
+            <Section title="Links úteis">
                 <NoteItem value='https://google.com.br' />
                 <NoteItem isNew placeholder="Novo link" />
+            </Section>
+
+            <Section title="Marcadores">
+                <div className="tags">
+                  <NoteItem value="react" />
+                  <NoteItem isNew placeholder="Nova tag" />
+                </div>
             </Section>
           </Form>
         </main>
