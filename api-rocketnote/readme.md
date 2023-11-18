@@ -133,3 +133,6 @@ Cardinalidade, ou seja a frequência que uma tabela se relaciona com a outra
 
 Inner Join 
 Fazer a junção de duas tabelas e trazer um resultado em conjunto desses dados.
+
+
+Para gerar tokens -> npm i jsonwebtoken 
