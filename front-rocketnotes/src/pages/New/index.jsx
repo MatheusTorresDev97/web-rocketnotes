@@ -1,24 +1,31 @@
-import { Link } from 'react-router-dom'
-import Header from '../../components/Header'
-import Input from '../../components/Input'
-import Textarea from '../../components/Textarea'
-import Section from '../../components/Section'
-import NoteItem from '../../components/NoteItem'
-import { Container, Form } from './styles'
-import { useState } from 'react'
-
+import { Link } from "react-router-dom";
+import Header from "../../components/Header";
+import Input from "../../components/Input";
+import Textarea from "../../components/Textarea";
+import Section from "../../components/Section";
+import NoteItem from "../../components/NoteItem";
+import { Container, Form } from "./styles";
+import { useState } from "react";
 
 const New = () => {
-  const [links, setLinks] = useState([])
-  const [newLink, setNewLink] = useState()
+  const [links, setLinks] = useState([]);
+  const [newLink, setNewLink] = useState("");
+
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState("");
 
   function handleAddLink() {
-    setLinks(prevState => [...prevState, newLink])
-    setNewLink("")
+    setLinks((prevState) => [...prevState, newLink]);
+    setNewLink("");
   }
 
   function handleRemoveLink(deleted) {
-    setLinks(prevState => prevState.filter((link) => link !== deleted))
+    setLinks((prevState) => prevState.filter((link) => link !== deleted));
+  }
+
+  function handleAddTag() {
+    setTags((prevState) => [...prevState, newTag]);
+    setNewTag("");
   }
 
   return (
@@ -37,33 +44,47 @@ const New = () => {
           <Textarea placeholder="Observações" />
 
           <Section title="Links úteis">
-            {
-              links.map((link, index) =>(
-                <NoteItem
+            {links.map((link, index) => (
+              <NoteItem
                 key={String(index)}
                 value={link}
-                onClick={() => {handleRemoveLink(link)}}
-                />
-              ))
-            }
+                onClick={() => {
+                  handleRemoveLink(link);
+                }}
+              />
+            ))}
             <NoteItem
               isNew
               value={newLink}
-              onChange={e => setNewLink(e.target.value)}
+              onChange={(e) => setNewLink(e.target.value)}
               onClick={handleAddLink}
-              placeholder="Novo link" />
+              placeholder="Novo link"
+            />
           </Section>
 
           <Section title="Marcadores">
             <div className="tags">
-              <NoteItem value="react" />
-              <NoteItem isNew placeholder="Nova tag" />
+              {tags.map((tag, index) => (
+                <NoteItem 
+                key={String(index)} 
+                value={tag} 
+                onClick={() => {}} 
+                />
+              ))}
+
+              <NoteItem
+                isNew
+                placeholder="Nova tag"
+                onChange={(e) => setNewTag(e.target.value)}
+                value={newTag}
+                onClick={handleAddTag}
+              />
             </div>
           </Section>
         </Form>
       </main>
     </Container>
-  )
-}
+  );
+};
 
-export default New
+export default New;
