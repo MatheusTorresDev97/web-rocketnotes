@@ -19,13 +19,17 @@ const New = () => {
     setNewLink("");
   }
 
-  function handleRemoveLink(deleted) {
-    setLinks((prevState) => prevState.filter((link) => link !== deleted));
+  function handleRemoveLink(tagDeleted) {
+    setLinks((prevState) => prevState.filter((link) => link !== tagDeleted));
   }
 
   function handleAddTag() {
     setTags((prevState) => [...prevState, newTag]);
     setNewTag("");
+  }
+
+  function handleRemoveTag(deleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
   return (
@@ -65,10 +69,10 @@ const New = () => {
           <Section title="Marcadores">
             <div className="tags">
               {tags.map((tag, index) => (
-                <NoteItem 
-                key={String(index)} 
-                value={tag} 
-                onClick={() => {}} 
+                <NoteItem
+                  key={String(index)}
+                  value={tag}
+                  onClick={() => {handleRemoveTag(tag);}}
                 />
               ))}
 
