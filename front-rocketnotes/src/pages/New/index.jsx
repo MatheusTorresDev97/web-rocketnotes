@@ -1,18 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
+import Button from "../../components/Button";
 import Textarea from "../../components/Textarea";
 import Section from "../../components/Section";
 import NoteItem from "../../components/NoteItem";
 import { Container, Form } from "./styles";
 import { useState } from "react";
 
+import { api } from "../../services/api";
+
 const New = () => {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+
   const [links, setLinks] = useState([]);
   const [newLink, setNewLink] = useState("");
 
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
+
+  const navigate = useNavigate()
 
   function handleAddLink() {
     setLinks((prevState) => [...prevState, newLink]);
@@ -32,6 +40,18 @@ const New = () => {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
+  async function handleNewNote() {
+    await api.post("/notes", {
+      title,
+      description,
+      tags,
+      links
+    })
+
+    alert("Nota criada com sucesso!")
+    navigate('/')
+  }
+
   return (
     <Container>
       <Header />
@@ -43,9 +63,13 @@ const New = () => {
             <Link to="/">voltar</Link>
           </header>
 
-          <Input placeholder="Título" />
+          <Input
+            onChange={e => setTitle(e.target.value)}
+            placeholder="Título" />
 
-          <Textarea placeholder="Observações" />
+          <Textarea
+            onChange={e => setDescription(e.target.value)}
+            placeholder="Observações" />
 
           <Section title="Links úteis">
             {links.map((link, index) => (
@@ -72,7 +96,7 @@ const New = () => {
                 <NoteItem
                   key={String(index)}
                   value={tag}
-                  onClick={() => {handleRemoveTag(tag);}}
+                  onClick={() => { handleRemoveTag(tag); }}
                 />
               ))}
 
@@ -85,6 +109,8 @@ const New = () => {
               />
             </div>
           </Section>
+
+          <Button title='Salvar' onClick={handleNewNote} />
         </Form>
       </main>
     </Container>
