@@ -15,7 +15,7 @@ const Details = () => {
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate("/");
+    navigate(-1);
   }
 
 async function handleRemove() {
@@ -23,7 +23,7 @@ async function handleRemove() {
 
     if(confirm) {
         await api.delete(`/notes/${id}`)
-        navigate("/")
+        navigate(-1)
     }
   }
 
