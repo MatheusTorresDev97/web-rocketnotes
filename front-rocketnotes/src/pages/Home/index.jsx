@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { FiPlus } from "react-icons/fi";
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
 import Header from "../../components/Header";
@@ -14,6 +15,8 @@ const Home = () => {
   const [tagsSelected, setTagsSelected] = useState([]);
   const [notes, setNotes] = useState([]);
 
+  const navigate = useNavigate()
+
 
   function handleTagSelected(tagName) {
     if(tagName === "all") {
@@ -27,6 +30,10 @@ const Home = () => {
     } else {
       setTagsSelected((prevState) => [...prevState, tagName]);
     }
+  }
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`)
   }
 
   useEffect(() => {
@@ -88,6 +95,7 @@ const Home = () => {
               <Note
               key={String(note.id)}
               data={note}
+              onClick={() => handleDetails(note.id)}
             />
             ))
           }
